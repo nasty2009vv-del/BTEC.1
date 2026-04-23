@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التعليم المهني في العقبة | وزارة التربية والتعليم الأردنية</title>
+    <meta name="description" content="برامج تعليم مهني عالمية بالتعاون مع Pearson BTEC في العقبة.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ═══ SPLASH SCREEN ═══ -->
+    <div class="splash" id="splash">
+        <div class="splash-logo">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="splash-icon-img"><img src="assets/20170618225634___.jpg" alt="وزارة التربية والتعليم"></div>
+        </div>
+        <div class="splash-bar">
+            <div class="splash-bar-fill"></div>
+        </div>
+        <div class="splash-text">وزارة التربية والتعليم</div>
+        <div class="splash-sub" style="color:rgba(212,175,55,0.7);font-size:0.9rem;margin-top:5px;letter-spacing:1px">
+            بصمة إبداع في التعليم التقني</div>
+        <div class="splash-arrow" id="splashArrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <!-- ═══ DEDICATION PAGE ═══ -->
+    <div class="dedication" id="dedication">
+        <div class="dedication-ornament"></div>
+        <div class="dedication-logo"><img src="assets/20170618225634___.jpg" alt="شعار الوزارة"></div>
+        <h2>إهداء إلى وزارة التربية والتعليم الأردنية</h2>
+        <p>بصمة إبداع وفخر من الطالب</p>
+        <div class="names"><span>أحمد بني مرعي</span></div>
+        <button class="welcome-btn" id="welcomeBtn"><span>Welcome — ادخل الموقع</span></button>
+    </div>
+
+    <!-- ═══ CURSOR ═══ -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ═══ PARTICLES ═══ -->
+    <canvas id="particles"></canvas>
+
+    <!-- ═══ PROGRESS BAR ═══ -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- ═══ SOUND TOGGLE ═══ -->
+    <button class="sound-toggle" id="soundToggle" title="كتم/تشغيل الصوت"><i class="fas fa-volume-up"></i></button>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header" id="header">
+        <div class="container nav-wrap">
+            <a href="#" class="logo">
+                <div class="logo-icon-img"><img src="assets/20170618225634___.jpg" alt="وزارة التربية والتعليم"></div>
+                <span class="logo-text">التعليم المهني — العقبة</span>
+            </a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active">الرئيسية</a>
+                <a href="schools.html">مدرستي</a>
+                <a href="#journey">رحلة الطالب</a>
+                <a href="#majors">التخصصات</a>
+                <a href="#stats">إنجازاتنا</a>
+
+                <a href="#videos">المكتبة المرئية</a>
+                <a href="#leaders">القيادة</a>
+                <a href="#support">الدعم الفني</a>
+                <a href="#contact">تواصل معنا</a>
+                <button id="themeToggle" class="theme-toggle" title="تغيير المظهر"><i class="fas fa-moon"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <img src="assets/شعار بيرسون .webp" alt="Pearson BTEC" class="pearson-logo-sm">
+                <span>شريكنا العالمي Pearson BTEC</span>
+            </div>
+            <h1>التعليم المهني في العقبة<span class="accent">حيث تتحول المهارات إلى مستقبل مهني حقيقي</span>
+            </h1>
+            <p class="hero-desc">نقدم برامج تعليم مهني حديثة تجمع بين أحدث المناهج العالمية والتدريب العملي المكثف،
+                لإعداد كوادر وطنية مؤهلة تواكب متطلبات سوق العمل في منطقة العقبة الاقتصادية الخاصة.</p>
+            <div class="hero-actions">
+                <a href="#majors" class="btn btn-gold btn-magnetic">استكشف التخصصات <i
+                        class="fas fa-arrow-left"></i></a>
+                <a href="#journey" class="btn btn-glass btn-magnetic"><i class="fas fa-play-circle"></i> رحلة الطالب</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div><span>اكتشف المزيد</span>
+        </div>
+    </section>
+
+    <!-- ═══ STORY PARALLAX ═══ -->
+    <section class="story">
+        <div class="story-inner">
+            <h2 class="reveal">في مدينة العقبة…<br>حيث يلتقي <span class="hl">التعليم</span> بسوق العمل</h2>
+            <p class="reveal d2">نؤمن بأن كل طالب يمتلك إمكانات غير محدودة. مهمتنا تحويل هذه الإمكانات إلى مهارات حقيقية
+                تصنع الفارق.</p>
+        </div>
+    </section>
+
+    <!-- ═══ JOURNEY ═══ -->
+    <section id="journey" class="section section-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">رحلة الطالب</div>
+                <h2>من التعلّم إلى سوق العمل</h2>
+                <p>أربع مراحل مدروسة لتحويل الطالب من متعلم إلى محترف جاهز.</p>
+            </div>
+            <div class="journey-grid">
+                <div class="journey-card reveal d1">
+                    <div class="step-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="step-number">١</div>
+                    <h4>التعلّم</h4>
+                    <p>أساسيات نظرية متينة مبنية على أحدث المناهج العالمية المعتمدة من Pearson.</p>
+                </div>
+                <div class="journey-card reveal d2">
+                    <div class="step-icon"><i class="fas fa-tools"></i></div>
+                    <div class="step-number">٢</div>
+                    <h4>التدريب</h4>
+                    <p>تطبيق عملي مكثف في ورش مجهزة بأعلى المعايير الدولية وبإشراف خبراء.</p>
+                </div>
+                <div class="journey-card reveal d3">
+                    <div class="step-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="step-number">٣</div>
+                    <h4>الاحتراف</h4>
+                    <p>شهادات BTEC معتمدة عالمياً تفتح آفاقاً مهنية واسعة محلياً ودولياً.</p>
+                </div>
+                <div class="journey-card reveal d4">
+                    <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="step-number">٤</div>
+                    <h4>سوق العمل</h4>
+                    <p>انطلاق مباشر نحو التوظيف عبر شراكاتنا مع كبرى مؤسسات العقبة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MAJORS 3D ═══ -->
+    <section id="majors" class="section section-gray">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">التخصصات المهنية</div>
+                <h2>مسارات تواكب المستقبل</h2>
+                <p>صمّمنا تخصصاتنا بناءً على دراسة معمّقة لاحتياجات سوق العمل.</p>
+            </div>
+            <div class="majors-grid">
+                <div class="major-card reveal d1" data-tilt onclick="openMajorModal('it')">
+                    <div class="major-video-container">
+                        <video autoplay muted loop playsinline class="major-mini-video">
+                            <source src="assets/تكنولوجيا المعلومات.mp4" type="video/mp4">
+                        </video>
+                        <div class="major-video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                    <h3>تكنولوجيا المعلومات</h3>
+                    <p>برمجة، تطوير تطبيقات، أمن سيبراني، وشبكات حاسوب. إعداد قادة الابتكار الرقمي.</p>
+                    <div class="levels-wrap"><span class="level-tag">Level 1</span><span class="level-tag">Level
+                            2</span><span class="level-tag">Level 3</span></div>
+                </div>
+                <div class="major-card reveal d2" data-tilt onclick="openMajorModal('hospitality')">
+                    <div class="major-video-container">
+                        <video autoplay muted loop playsinline class="major-mini-video">
+                            <source src="assets/مقدمة في تدريس المستوى الدولي الثاني BTEC في الضيافة.mp4" type="video/mp4">
+                        </video>
+                        <div class="major-video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-icon-wrap"><i class="fas fa-hotel"></i></div>
+                    <h3>الضيافة والفندقة</h3>
+                    <p>إدارة الفنادق والمنتجعات، خدمة العملاء المتميزة، والسياحة الفاخرة.</p>
+                    <div class="levels-wrap"><span class="level-tag">Level 1</span><span class="level-tag">Level
+                            2</span><span class="level-tag">Level 3</span></div>
+                </div>
+                <div class="major-card reveal d3" data-tilt onclick="openMajorModal('electrical')">
+                    <div class="major-video-container">
+                        <video autoplay muted loop playsinline class="major-mini-video">
+                            <source src="assets/الهندسه الكهربائية.mp4" type="video/mp4">
+                        </video>
+                        <div class="major-video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-icon-wrap"><i class="fas fa-bolt"></i></div>
+                    <h3>الهندسة الكهربائية</h3>
+                    <p>أنظمة الطاقة المتجددة، الخلايا الشمسية، والتحكم الصناعي الحديث.</p>
+                    <div class="levels-wrap"><span class="level-tag">Level 1</span><span class="level-tag">Level
+                            2</span><span class="level-tag">Level 3</span></div>
+                </div>
+                <div class="major-card reveal d4" data-tilt onclick="openMajorModal('mechanical')">
+                    <div class="major-video-container">
+                        <video autoplay muted loop playsinline class="major-mini-video">
+                            <source src="assets/الهندسة الميكانيكية.mp4" type="video/mp4">
+                        </video>
+                        <div class="major-video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-icon-wrap"><i class="fas fa-car-battery"></i></div>
+                    <h3>الهندسة الميكانيكية</h3>
+                    <p>صيانة المركبات الحديثة، تكنولوجيا الإنتاج، وأنظمة الهيدروليك.</p>
+                    <div class="levels-wrap"><span class="level-tag">Level 1</span><span class="level-tag">Level
+                            2</span><span class="level-tag">Level 3</span></div>
+                </div>
+                <div class="major-card reveal d5" data-tilt onclick="openMajorModal('beauty')">
+                    <div class="major-video-container">
+                        <video autoplay muted loop playsinline class="major-mini-video">
+                            <source src="assets/تخصص التجميل والعناية بالبشرة.mp4" type="video/mp4">
+                        </video>
+                        <div class="major-video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-icon-wrap"><i class="fas fa-cut"></i></div>
+                    <h3>التجميل</h3>
+                    <p>العناية بالبشرة، تصفيف الشعر الاحترافي، وإدارة صالونات التجميل.</p>
+                    <div class="levels-wrap"><span class="level-tag">Level 1</span><span class="level-tag">Level
+                            2</span></div>
+                </div>
+                <div class="major-card reveal d6" data-tilt onclick="openMajorModal('cooking')">
+                    <div class="major-video-container">
+                        <video autoplay muted loop playsinline class="major-mini-video">
+                            <source src="assets/فنون الطهي.mp4" type="video/mp4">
+                        </video>
+                        <div class="major-video-placeholder">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="card-icon-wrap"><i class="fas fa-utensils"></i></div>
+                    <h3>فنون الطهي</h3>
+                    <p>إتقان المطابخ العالمية والمحلية، وتأهيل طهاة بمستوى عالمي.</p>
+                    <div class="levels-wrap"><span class="level-tag">Level 1</span><span class="level-tag">Level
+                            2</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ STATS ═══ -->
+    <section id="stats" class="stats">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="container">
+            <div class="section-header reveal" style="margin-bottom:70px">
+                <div class="tag" style="color:var(--gold-light)">إنجازاتنا بالأرقام</div>
+                <h2 style="color:#fff">أرقام تتحدث عن نفسها</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card reveal d1"><i class="fas fa-layer-group"></i>
+                    <div class="stat-number"><span class="counter" data-target="10">0</span>+</div>
+                    <p>تخصصات معتمدة</p>
+                </div>
+                <div class="stat-card reveal d2"><i class="fas fa-user-graduate"></i>
+                    <div class="stat-number"><span class="counter" data-target="500">0</span>+</div>
+                    <p>طالب وطالبة</p>
+                </div>
+                <div class="stat-card reveal d3"><i class="fas fa-chalkboard-teacher"></i>
+                    <div class="stat-number"><span class="counter" data-target="30">0</span>+</div>
+                    <p>مدرب متخصص</p>
+                </div>
+                <div class="stat-card reveal d4"><i class="fas fa-tools"></i>
+                    <div class="stat-number">%<span class="counter" data-target="100">0</span></div>
+                    <p>تدريب عملي</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PARTNERS ═══ -->
+    <section id="partners" class="section section-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">شركاؤنا</div>
+                <h2>شركاء سوق العمل</h2>
+            </div>
+            <div class="partners-row reveal">
+                <div class="partner-item"><i class="fas fa-hotel"></i> الفنادق الكبرى</div>
+                <div class="partner-item"><i class="fas fa-industry"></i> المدن الصناعية</div>
+                <div class="partner-item"><i class="fas fa-ship"></i> ميناء حاويات العقبة</div>
+                <div class="partner-item"><i class="fas fa-city"></i> منطقة العقبة الاقتصادية</div>
+                <div class="partner-item"><i class="fas fa-plane"></i> مطار الملك حسين</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ VIDEOS ═══ -->
+    <section id="videos" class="section section-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">المعرض المرئي</div>
+                <h2>فيديوهات تعريفية بالتخصصات والأنشطة</h2>
+                <p>شاهد تجربة التعليم المهني الحديثة في العقبة من خلال عدسة الكاميرا</p>
+            </div>
+            <div class="videos-grid">
+                <!-- Video 1 -->
+                <div class="video-card reveal" onclick="forcePlayVideo('assets/videoplayback.mp4')">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/K9Ai4oDVv7o/maxresdefault.jpg" alt="نظام BTEC في الأردن"
+                            onerror="this.src='https://img.youtube.com/vi/K9Ai4oDVv7o/hqdefault.jpg'">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-info-new">
+                        <h4>نظام BTEC في الأردن</h4>
+                        <p>شاهد لقطات من النظام التعليمي</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card reveal d2" onclick="forcePlayVideo('assets/videoplayback (1).mp4')">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/dUs-zQ6G3wI/maxresdefault.jpg" alt="BTEC Engineering"
+                            onerror="this.src='https://img.youtube.com/vi/dUs-zQ6G3wI/hqdefault.jpg'">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-info-new">
+                        <h4>BTEC Engineering</h4>
+                        <p>عرض عملي لتخصص الهندسة</p>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card reveal d3" onclick="forcePlayVideo('assets/videoplayback (2).mp4')">
+                    <div class="video-thumb">
+                        <img src="https://img.youtube.com/vi/O4bsATm4s1w/maxresdefault.jpg" alt="BTEC Works 2020"
+                            onerror="this.src='https://img.youtube.com/vi/O4bsATm4s1w/hqdefault.jpg'">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-info-new">
+                        <h4>BTEC Works 2020</h4>
+                        <p>تعرف على مستقبل الخريجين</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ LEADERSHIP ═══ -->
+    <section id="leaders" class="section section-gray">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">القيادة التربوية</div>
+                <h2>رؤية واضحة لمستقبل مشرق</h2>
+            </div>
+            <div class="leaders-grid">
+                <div class="leader-card reveal">
+                    <div class="leader-photo"><img src="assets/images_5.jpg" alt="مدير التربية والتعليم"></div>
+                    <h3>مدير التربية والتعليم</h3><span class="leader-role">محافظة العقبة</span>
+                    <blockquote>"نؤمن بأن التعليم المهني ركيزة أساسية للتنمية الشاملة. نعمل على توفير بيئة تعليمية
+                        متطورة تلبي تطلعات شبابنا."</blockquote>
+                </div>
+                <div class="leader-card reveal d2">
+                    <div class="leader-photo"><img src="assets/images_4.jpg" alt="رئيس قسم التعليم المهني"></div>
+                    <h3> مدير التربيه و التعليم لمحافظة العقبه</h3><span class="leader-role">مديرية التربية والتعليم —
+                        العقبة</span>
+                    <blockquote>"من خلال برامج BTEC المعتمدة دولياً، نضع بين أيدي طلبتنا أدوات النجاح للانطلاق بثقة نحو
+                        سوق العمل."</blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TECH SUPPORT ═══ -->
+    <section id="support" class="section section-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">الدعم الفني</div>
+                <h2>فريق الدعم التقني</h2>
+                <p style="font-size: 1.25rem; font-weight: 600; color: var(--gold); margin-top: 10px;">القائمون على تطوير هذا المشروع بكل إبداع وشغف</p>
+                <p>فريقنا المتخصص جاهز لمساعدتك في أي استفسار تقني أو مهني.</p>
+            </div>
+            <div class="support-grid">
+                <div class="support-card reveal">
+                    <img src="assets/473876ba-9891-45b9-a630-87bdc654aebe.png" alt="أحمد بني مرعي"
+                        class="support-avatar">
+                    <h4>أحمد بني مرعي</h4>
+                    <span class="role">مطور ومصمم الموقع</span>
+                    <p style="color:var(--text-secondary);margin-top:12px;font-size:0.95rem">مسؤول عن التصميم الإبداعي
+                        وتجربة المستخدم وضمان الجودة.</p>
+                    <div class="support-links">
+                        <a href="https://www.instagram.com/nox_k11?igsh=MXg1cWljeDY2MjlzYg==" class="support-link insta"
+                            title="إنستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:nasty2009vv@gmail.com" class="support-link mail" title="بريد إلكتروني"><i
+                                class="fas fa-envelope"></i></a>
+                        <a href="tel:+962798311071" class="support-link phone" title="اتصال"><i
+                                class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="section section-gray">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="tag">تواصل معنا</div>
+                <h2>نسعد بالإجابة على استفساراتكم</h2>
+            </div>
+            <div class="contact-grid reveal" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+                <div class="contact-form-side">
+                    <h3>أرسل رسالتك</h3>
+                    <p>سنتواصل معك في أقرب وقت ممكن.</p>
+                    <form id="contactForm">
+                        <div class="form-row"><input type="text" class="form-field" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-row"><input type="email" class="form-field" placeholder="البريد الإلكتروني"
+                                required></div>
+                        <div class="form-row"><input type="text" class="form-field" placeholder="الموضوع" required>
+                        </div>
+                        <div class="form-row"><textarea class="form-field" placeholder="رسالتك..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn btn-magnetic"><span>إرسال الرسالة</span> <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/شعار بيرسون .webp" alt="Pearson BTEC" class="pearson-logo-ft">
+                    <h3>التعليم المهني — العقبة</h3>
+                    <p>نطمح لبناء أجيال تمتلك المعرفة والمهارة لتطوير مجتمعاتها ومواكبة أعلى المعايير العالمية.</p>
+                    <div class="footer-socials">
+                        <a href="https://chat.whatsapp.com/KWiu8leyfhEEdOVBOqS2Gp" target="_blank"
+                            title="تواصل عبر واتساب" style="background: #25D366; color: white;">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#journey">رحلة الطالب</a></li>
+                        <li><a href="#majors">التخصصات</a></li>
+
+                        <li><a href="#support">الدعم الفني</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>معلومات التواصل</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>العقبة، المملكة الأردنية
+                            الهاشمية</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone"></i><span>+962 3 201 0000</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@aqabavtc.edu.jo</span>
+                    </div>
+                    <div class="footer-contact-item"><i class="fas fa-clock"></i><span>الأحد - الخميس: 8 ص - 3 م</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 مديرية التربية والتعليم في العقبة — قسم التعليم المهني | وزارة
+                التربية والتعليم — المملكة الأردنية الهاشمية</div>
+        </div>
+    </footer>
+
+    <!-- ═══ BACK TO TOP ═══ -->
+    <button class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- ═══ CHAT FLOAT ═══ -->
+    <div class="chat-float" id="chatFloat"><i class="fas fa-comments"></i></div>
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header"><i class="fas fa-headset"></i>
+            <div>
+                <h4>مركز المساعدة</h4>
+            </div>
+        </div>
+        <div class="chat-body">
+            <p>مرحباً! كيف يمكننا مساعدتك؟</p>
+            <div class="faq-item"><i class="fas fa-question-circle"></i> كيف أسجل في التعليم المهني؟</div>
+            <div class="faq-item"><i class="fas fa-question-circle"></i> ما هي التخصصات المتاحة؟</div>
+            <div class="faq-item"><i class="fas fa-question-circle"></i> هل الشهادات معتمدة دولياً؟</div>
+            <div class="faq-item"><i class="fas fa-question-circle"></i> كيف أتواصل مع الدعم الفني؟</div>
+        </div>
+    </div>
+
+    <!-- ═══ VIDEO MODAL ═══ -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-close" onclick="forceCloseVideo()"><i class="fas fa-times"></i></div>
+        <div class="video-modal-content" id="videoModalContent"></div>
+    </div>
+
+    <!-- ═══ MAJOR DETAILS MODAL ═══ -->
+    <div class="major-modal" id="majorModal">
+        <div class="major-modal-overlay" onclick="closeMajorModal()"></div>
+        <div class="major-modal-content">
+            <div class="major-modal-close" onclick="closeMajorModal()"><i class="fas fa-times"></i></div>
+            <div class="major-modal-header">
+                <div class="major-modal-icon" id="majorModalIcon"><i class="fas fa-laptop-code"></i></div>
+                <h2 id="majorModalTitle">تكنولوجيا المعلومات</h2>
+            </div>
+            <div class="major-modal-body" id="majorModalBody">
+                <!-- Content injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

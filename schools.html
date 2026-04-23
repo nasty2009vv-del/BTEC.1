@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدرستي | التعليم المهني - العقبة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .schools-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(2, 8, 16, 0.9), rgba(2, 8, 16, 0.95)), url('assets/hero.png') center/cover;
+            text-align: center;
+        }
+
+        .school-section {
+            padding: 120px 0;
+            background: var(--white);
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .staff-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: 32px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.5s var(--ease);
+            color: var(--text-primary);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .staff-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+        }
+
+        .message-box {
+            background: var(--gray-50);
+            padding: 60px;
+            border-radius: 40px;
+            margin-bottom: 80px;
+            border-right: 8px solid var(--gold);
+            color: var(--text-primary);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-top: 25px;
+            background: var(--gradient-navy);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.dark-mode .section-header h2 {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .message-box h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .message-box p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .staff-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            color: var(--gold);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .staff-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .school-media {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .media-placeholder {
+            width: 100%;
+            min-height: 300px;
+            background: var(--gray-100);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: var(--gold);
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+            padding: 40px;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-placeholder:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .play-btn-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .media-placeholder:hover .play-btn-circle {
+            transform: scale(1.1);
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body class="ready">
+    <!-- ═══ PROGRESS BAR ═══ -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- ═══ SOUND TOGGLE ═══ -->
+    <button class="sound-toggle" id="soundToggle" title="كتم/تشغيل الصوت"><i class="fas fa-volume-up"></i></button>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="header scrolled" id="header">
+        <div class="container nav-wrap">
+            <a href="index.html?nosplash=true" class="logo">
+                <div class="logo-icon-img"><img src="assets/20170618225634___.jpg" alt="وزارة التربية والتعليم"></div>
+                <span class="logo-text">التعليم المهني — العقبة</span>
+            </a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html?nosplash=true">الرئيسية</a>
+                <a href="schools.html" class="active">مدرستي</a>
+                <button id="themeToggle" class="theme-toggle" title="تغيير المظهر"><i class="fas fa-moon"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="schools-hero">
+        <div class="container">
+            <div style="opacity: 1; transform: none;"> <!-- Removed reveal class for immediate visibility -->
+                <h1
+                    style="color:var(--gold); font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 20px; font-weight: 900;">
+                    بصمة إبداع في مدارسنا</h1>
+                <p
+                    style="color:rgba(255,255,255,0.8); font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px; line-height: 1.8;">
+                    رحلة التميز تبدأ من هنا. نستعرض الكوادر المبدعة والبيئات التعليمية المتقدمة التي تحتضن برنامج BTEC
+                    العالمي في العقبة.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html?nosplash=true" class="btn btn-gold"
+                        style="padding: 15px 40px; min-width: 250px;">
+                        <i class="fas fa-home" style="margin-left:10px"></i> العودة للرئيسية
+                    </a>
+                    <a href="#al-sarh" class="btn btn-glass" style="padding: 15px 40px; min-width: 250px;">
+                        استعرض المدارس <i class="fas fa-chevron-down" style="margin-right:10px"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Force reveal elements to show even if main.js is slow
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 500);
+        });
+    </script>
+
+    <!-- ═══ SCHOOL 1: AL-SARH ═══ -->
+    <section class="school-section" id="al-sarh" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div
+                    style="width: 120px; height: 120px; margin: 0 auto 25px; border-radius: 50%; background: #fff; padding: 10px; border: 3px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/شعار لمدرسه السرح jpg.jpg" alt="شعار مدرسة السرح"
+                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+                </div>
+
+                <h2 style="font-size: 3rem; margin-top: 20px;">مدرسة السرح الثانوية</h2>
+                <p>بيئة تعليمية مهنية متكاملة تهدف للريادة والابتكار وتطوير المهارات القيادية.</p>
+            </div>
+
+            <!-- Features of Al-Sarh -->
+            <div class="reveal"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 70px;">
+                <div
+                    style="background: var(--white); padding: 30px; border-radius: 20px; border: 1px solid var(--gray-100);">
+                    <i class="fas fa-microchip" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 20px;"></i>
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">أحدث التقنيات</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">توفير أجهزة ومعدات تحاكي متطلبات سوق
+                        العمل الذكي والتقني.</p>
+                </div>
+                <div
+                    style="background: var(--white); padding: 30px; border-radius: 20px; border: 1px solid var(--gray-100);">
+                    <i class="fas fa-certificate"
+                        style="font-size: 2.5rem; color: var(--gold); margin-bottom: 20px;"></i>
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">شهادات دولية</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">تجهيز الطلاب للحصول على شهادات Pearson
+                        BTEC المعترف بها عالمياً.</p>
+                </div>
+                <div
+                    style="background: var(--white); padding: 30px; border-radius: 20px; border: 1px solid var(--gray-100);">
+                    <i class="fas fa-briefcase" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 20px;"></i>
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">توجيه مهني</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">ضمان مسار وظيفي واضح للطلاب من خلال
+                        الإرشاد والتدريب العملي.</p>
+                </div>
+            </div>
+
+            <div class="school-grid">
+                <!-- Principal -->
+                <div class="staff-card" style="background: var(--white);">
+                    <div class="staff-img">
+                        <img src="assets/هاني الشباطات مدير المدرسه السرح .jpg" alt="الأستاذ هاني الشباطات">
+                        <i class="fas fa-user-tie" style="font-size: 3.5rem; display: none;"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 style="color:var(--gold)">الأستاذ هاني الشباطات</h3>
+                        <p style="color:var(--text-secondary)">مدير مدرسة السرح</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-secondary);">قيادة تربوية
+                            متميزة تسعى لتطوير المسارات المهنية والتقنية لخدمة المجتمع المحلي.</p>
+                    </div>
+                </div>
+                <!-- Engineer -->
+                <div class="staff-card" style="background: var(--white);">
+                    <div class="staff-img">
+                        <img src="assets/اسم المهندس ليث العودات.jpg" alt="المهندس ليث العودات">
+                        <i class="fas fa-hard-hat" style="font-size: 3.5rem; display: none;"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 style="color:var(--gold)">المهندس ليث العودات</h3>
+                        <p style="color:var(--text-secondary)">المهندس المشرف</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-secondary);">خبير متخصص يضمن
+                            تطبيق الجانب العملي والتقني للمهارات المهنية بدقة واحترافية.</p>
+                    </div>
+                </div>
+                <!-- QA Officer -->
+                <div class="staff-card" style="background: var(--white);">
+                    <div class="staff-img">
+                        <img src="assets/هاض مدقق جوده   المدقق الخارجي .jpg" alt="المدقق الخارجي">
+                        <i class="fas fa-shield-alt" style="font-size: 3.5rem; display: none;"></i>
+                    </div>
+                    <div class="staff-info">
+                        <h3 style="color:var(--gold)">المدقق الخارجي</h3>
+                        <p style="color:var(--text-secondary)">ضمان جودة المسارات (QA)</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-secondary);">التحقق الخارجي
+                            لضمان أعلى معايير الجودة الأكاديمية والمهنية وفق متطلبات Pearson.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school-media">
+                <!-- Video Section -->
+                <div class="media-placeholder"
+                    style="background: #000; padding: 0; overflow: hidden; position: relative;">
+                    <video controls style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
+                        <source src="assets/فيديو لمدرسه السرح .mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div
+                        style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.6); padding: 5px 15px; border-radius: 20px; color: #fff; font-size: 0.9rem; pointer-events: none;">
+                        <i class="fas fa-video" style="margin-left: 5px;"></i> جولة في مدرسة السرح
+                    </div>
+                </div>
+                <!-- Gallery Section -->
+                <div class="media-placeholder"
+                    style="background: var(--white); justify-content: flex-start; padding: 30px; min-height: 450px; border: 1px solid var(--gray-100);">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; margin-bottom: 25px;">
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/shabab.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="لقاء الطلاب والمعلمين في مدرسة السرح المهنية">
+                        </div>
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/البوم السرح 1.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="فعاليات مدرسة السرح 1">
+                        </div>
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/البوم السرح 2.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="فعاليات مدرسة السرح 2">
+                        </div>
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/البوم السرح 3.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="فعاليات مدرسة السرح 3">
+                        </div>
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/البوم السرح 4.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="فعاليات مدرسة السرح 4">
+                        </div>
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/البوم السرح 5.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="فعاليات مدرسة السرح 5">
+                        </div>
+                        <div
+                            style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; border: 2px solid var(--gold);">
+                            <img src="assets/صوره البوم 6.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                                alt="فعاليات مدرسة السرح 6">
+                        </div>
+                    </div>
+                    <h4
+                        style="color: var(--text-primary); margin-bottom: 5px; font-size: 1.5rem; text-align: center; width: 100%;">
+                        معرض الإنجازات والأنشطة</h4>
+                    <p style="color: var(--text-secondary); text-align: center; font-size: 0.95rem;">توثيق لفعاليات
+                        الطلاب والمختبرات التقنية في مدرسة السرح المهنية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA SECTION ═══ -->
+    <section style="padding: 100px 0; background: var(--gradient-gold); text-align: center;">
+        <div class="container reveal">
+            <h2 style="color: #000; font-size: 3rem; margin-bottom: 20px;">جاهز للانضمام إلينا؟</h2>
+            <p style="color: rgba(0,0,0,0.8); font-size: 1.2rem; margin-bottom: 40px;">سجل الآن في أحد مراكزنا المتميزة
+                وابدأ رحلتك المهنية.</p>
+            <a href="index.html?nosplash=true#contact" class="btn btn-navy"
+                style="background: #000; color: #fff; padding: 15px 45px; border-radius: 50px; font-weight: 700;">تواصل
+                معنا الآن</a>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/شعار بيرسون .webp" alt="Pearson BTEC" class="pearson-logo-ft">
+                    <h3>التعليم المهني — العقبة</h3>
+                    <p>نطمح لبناء أجيال تمتلك المعرفة والمهارة لتطوير مجتمعاتها ومواكبة أعلى المعايير العالمية.</p>
+                    <div class="footer-socials">
+                        <a href="https://chat.whatsapp.com/KWiu8leyfhEEdOVBOqS2Gp" target="_blank"
+                            title="تواصل عبر واتساب" style="background: #25D366; color: white;">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 مديرية التربية والتعليم - قسم التعليم المهني</div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
